@@ -1,0 +1,43 @@
+package com.iot.sec_yr.iot_jdbc_templete.controller.impl;
+
+import com.iot.sec_yr.iot_jdbc_templete.controller.UserControler;
+import com.iot.sec_yr.iot_jdbc_templete.domain.User;
+import com.iot.sec_yr.iot_jdbc_templete.service.UserService;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class UserControlerImpl implements UserControler {
+    private final UserService userService;
+
+    public UserControlerImpl(UserService userService) {
+        this.userService = userService;
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userService.findAll();
+    }
+
+    @Override
+    public Optional<User> findById(Integer id) {
+        return userService.findById(id);
+    }
+
+    @Override
+    public int create(User user) {
+        return userService.create(user);
+    }
+
+    @Override
+    public int update(Integer id, User user) {
+        return userService.update(id, user);
+    }
+
+    @Override
+    public int delete(Integer id) {
+        return userService.delete(id);
+    }
+}
